@@ -61,5 +61,17 @@ function commencerCombat() {
     }, tempsAttaque); // Attaquer toutes les `tempsAttaque` millisecondes
 }
 
+function myFunction() {
+  // Get the value of the input field with id="numb"
+  let x = document.getElementById("numb").value;
+  // If x is Not a Number or less than one or greater than 10
+  let text;
+  if (isNaN(x) || x < 1) {
+    text = "Input not valid";
+  } else {
+    text = "Input OK";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
 // Ajouter un événement pour démarrer le combat au clic sur le bouton
 document.getElementById("startGameBtn").addEventListener("click", commencerCombat);
