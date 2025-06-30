@@ -1,3 +1,4 @@
+
 // Variables de base du jeu
 let vieBoss = 100; // Vie initiale du boss
 let minDegats = 20; // Dégâts minimum que le joueur peut infliger
@@ -14,8 +15,8 @@ function attaquerBoss() {
 function commencerCombat() {
     // Réinitialisation de la vie du boss à chaque nouveau combat
     var vieJoueur = prompt("entrez la vie de votre personnage "); // Vie du joueur (optionnel, pas utilisé dans ce combat)
-    vieBoss = prompt("Entrez la vie initiale du boss (par défaut 100) :") || 100;
-
+    vieBoss = prompt("Entrez la vie initiale du boss :") || 100;
+   
     let log = document.getElementById("gameLog"); // Zone pour afficher les logs
     log.textContent = "Le combat contre le boss commence !\n";
 
@@ -60,18 +61,19 @@ function commencerCombat() {
         }
     }, tempsAttaque); // Attaquer toutes les `tempsAttaque` millisecondes
 }
-
 function myFunction() {
   // Get the value of the input field with id="numb"
   let x = document.getElementById("numb").value;
   // If x is Not a Number or less than one or greater than 10
   let text;
   if (isNaN(x) || x < 1) {
-    text = "Le chifre n'est pas corecte!";
+    text = "Ce n'est pas correct!!";
   } else {
-    text = "Bravo le chifre est  corecte!";
+    text = "Il est correct";
   }
   document.getElementById("demo").innerHTML = text;
 }
+
+
 // Ajouter un événement pour démarrer le combat au clic sur le bouton
 document.getElementById("startGameBtn").addEventListener("click", commencerCombat);
