@@ -67,9 +67,9 @@ function myFunction() {
   // If x is Not a Number or less than one or greater than 10
   let text;
   if (isNaN(x) || x < 1) {
-    text = "Le chfre n'est pas corecte!";
+    text = "Le chifre n'est pas corecte!";
   } else {
-    text = "Bravo le chfre est  corecte!";
+    text = "Bravo le chifre est  corecte!";
   }
   document.getElementById("demo").innerHTML = text;
 }
