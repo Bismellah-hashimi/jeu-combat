@@ -1,0 +1,24 @@
+.gamebtn{
+    background-color: black;
+    color: #fff;
+    border-radius: 20px ;
+    border: solid;
+    padding: 10px;
+}
+
+.Nan{
+    padding: 10px;
+    background-color: rgb(69, 200, 205);
+    color: #fff;
+    border: solid;
+    border-radius: 9px;
+}
+
+.mma{
+    padding: 10px;
+    background-color: rgb(69, 200, 205);
+    color: #fff;
+    border: solid;
+    border-radius: 9px;
+}
+
