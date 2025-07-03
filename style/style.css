@@ -4,6 +4,8 @@
     border-radius: 20px ;
     border: solid;
     padding: 10px;
+     border-color: rgb(91, 210, 120);
+
 }
 
 .Nan{
@@ -12,7 +14,9 @@
     color: #fff;
     border: solid;
     border-radius: 9px;
+     border-color: rgb(91, 210, 120);
 }
+
 
 .mma{
     padding: 10px;
@@ -20,5 +24,18 @@
     color: #fff;
     border: solid;
     border-radius: 9px;
+    border-color: rgb(91, 210, 120);
 }
 
+.container{
+    display:inline-block;
+    background-color: rgb(64, 88, 88);
+    border-radius: 3px;
+    border: solid;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    padding: 30px;
+    
+
+}

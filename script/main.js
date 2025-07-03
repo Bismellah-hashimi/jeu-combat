@@ -1,6 +1,7 @@
 
 // Variables de base du jeu
 let vieDuBoss = 100; // Vie initiale du boss
+let vieDuJoueur = 100 //vie initiale du joueur
 let minDegats = 20; // Dégâts minimum que le joueur peut infliger
 let maxDegats = 40; // Dégâts maximum que le joueur peut infliger
 let tempsAttaque = 1000; // Temps entre chaque attaque en millisecondesq    
@@ -32,8 +33,7 @@ function commencerCombat() {
         compteur++; 
         //si le test sera fals cinq fois ou plus....
         if(compteur>=5){
-            //Il yaura un message d'ereure(vous aves essayer tout vos chances. Le preograme va se fermer)
-            console.log("vous aves essayer tout vos chances. Le preograme va se fermer");
+//Il y aura un message d'erreur (vous avez essayé toutes vos chances. Le programme va se fermer)            console.log("vous aves essayer tout vos chances. Le preograme va se fermer");
             //le programe va se fermer.
             return; 
         }
@@ -67,16 +67,19 @@ let interval = setInterval(function () {
     var choix = prompt("arme, boire une potion de vie, ou utiliser un joker");
     switch (choix) {
         case "1":
+            
             log.textContent += "Le joueur attaque avec son arme !\n";
             break;
         case "2":
             log.textContent += "Le joueur boit une potion de vie !\n";
+            
             // Ici, vous pouvez ajouter la logique pour restaurer la vie du joueur
             break;
         case "3":
             log.textContent += "Le joueur utilise un joker !\n";
             // Ici, vous pouvez ajouter la logique pour utiliser un joker
             break;
+            
         default:
             log.textContent += "Action non reconnue. Le joueur attaque avec son arme par défaut.\n";
     }
