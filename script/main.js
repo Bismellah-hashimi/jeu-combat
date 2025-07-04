@@ -3,14 +3,13 @@
 let vieDuBoss = 100; // Vie initiale du boss
 let vieDuJoueur = 100 //vie initiale du joueur
 let minDegats = 20; // Dégâts minimum que le joueur peut infliger
-let maxDegats = 40; // Dégâts maximum que le joueur peut infliger
+let maxDegats = 60; // Dégâts maximum que le joueur peut infliger
 let tempsAttaque = 1000; // Temps entre chaque attaque en millisecondesq    
 
 // Fonction pour générer des dégâts aléatoires entre minDegats et maxDegats
 function attaquerBoss() {
     return Math.floor(Math.random() * (maxDegats - minDegats + 1)) + minDegats;
 }
-
 
 // Fonction pour commencer le combat
 function commencerCombat() {
@@ -30,22 +29,21 @@ function commencerCombat() {
         else {
             console.log("Le chifre n'est pas valide.");
         }
-        compteur++; 
+        compteur++;
         //si le test sera fals cinq fois ou plus....
-        if(compteur>=5){
-//Il y aura un message d'erreur (vous avez essayé toutes vos chances. Le programme va se fermer)            console.log("vous aves essayer tout vos chances. Le preograme va se fermer");
+        if (compteur >= 5) {
+            //Il y aura un message d'erreur (vous avez essayé toutes vos chances. Le programme va se fermer)            console.log("vous aves essayer tout vos chances. Le preograme va se fermer");
             //le programe va se fermer.
-            return; 
+            return;
         }
-    
+
     }
-    
+
 }
 
-let vieJoueur;
-while (isNaN(vieJoueur) || (vieJoueur) < 1) {
-    vieJoueur = prompt("entrez la vie de votre personnage "); // Vie du joueur (optionnel, pas utilisé dans ce combat)
-    vieJoueur = parseInt(vieJoueur)
+while (isNaN(vieDuJoueur) || (vieDuJoueur) < 1) {
+    vieDuJoueur = prompt("entrez la vie de votre personnage "); // Vie du joueur (optionnel, pas utilisé dans ce combat)
+    vieDuJoueur = parseInt(vieDuJoueur)
 
 }
 
@@ -67,29 +65,46 @@ let interval = setInterval(function () {
     var choix = prompt("arme, boire une potion de vie, ou utiliser un joker");
     switch (choix) {
         case "1":
-            
+
             log.textContent += "Le joueur attaque avec son arme !\n";
+            let degats = attaquerBoss();
+
+            // Afficher l'attaque et la vie restante du boss
+            log.textContent += `Le joueur attaque le boss et inflige ${degats} points de dégâts.\n`;
+
+            // Réduire la vie du boss
+            vieDuBoss -= degats;
+
             break;
         case "2":
             log.textContent += "Le joueur boit une potion de vie !\n";
-            
+            let chance = Math.random();
+            if(chance < 0.05){
+                vieDuBoss += 30;
+            }else{
+            vieDuJoueur += 30;
+            }
+
             // Ici, vous pouvez ajouter la logique pour restaurer la vie du joueur
             break;
         case "3":
             log.textContent += "Le joueur utilise un joker !\n";
             // Ici, vous pouvez ajouter la logique pour utiliser un joker
+            let chances = Math.rendom();
+            if(chance <0.05){
+                degats*2
+            }
+            else if(chance<0.7){
+                vieDuJoueur += 50;
+            }
+            else {
+
+            }
             break;
-            
+
         default:
             log.textContent += "Action non reconnue. Le joueur attaque avec son arme par défaut.\n";
     }
-    let degats = attaquerBoss();
-
-    // Afficher l'attaque et la vie restante du boss
-    log.textContent += `Le joueur attaque le boss et inflige ${degats} points de dégâts.\n`;
-
-    // Réduire la vie du boss
-    vieDuBoss -= degats;
 
     if (vieDuBoss < 0) {
         vieDuBoss = 0; // S'assurer que la vie ne devient pas négative
