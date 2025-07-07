@@ -10,16 +10,15 @@ let tempsAttaque = 1000; // Temps entre chaque attaque en millisecondesq
 function attaquerBoss() {
     return Math.floor(Math.random() * (maxDegats - minDegats + 1)) + minDegats;
 }
-
 // Fonction pour commencer le combat
 function commencerCombat() {
 
     let valide = false;
     let compteur = 0;
 
-    while (valide == false) {
-        let testNumero = prompt("Merci d'entrer un chiffre valide ..");
-        console.log(testNumero);
+    while (valide =true) {
+        let testNumero = prompt("Entrez la vie du bosse");
+        compteur = parseInt(valide);
 
         // si c'est un chiffre
         if ((!isNaN(testNumero)) && ((testNumero) > 0)) {
@@ -40,6 +39,7 @@ function commencerCombat() {
     }
 
 }
+    
 
 while (isNaN(vieDuJoueur) || (vieDuJoueur) < 1) {
     vieDuJoueur = prompt("entrez la vie de votre personnage "); // Vie du joueur (optionnel, pas utilisé dans ce combat)
@@ -137,4 +137,4 @@ function myFunction() {
 
 
 // Ajouter un événement pour démarrer le combat au clic sur le bouton
-//document.getElementById("startGameBtn").addEventListener("click", commencerCombat);*/
+//document.getElementById("startGameBtn").addEventListener("click", commencerCombat);*/}
