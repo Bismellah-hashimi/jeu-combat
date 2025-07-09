@@ -18,14 +18,6 @@
 }
 
 
-.mma{
-    padding: 10px;
-    background-color: rgb(69, 200, 205);
-    color: #fff;
-    border: solid;
-    border-radius: 9px;
-    border-color: rgb(91, 210, 120);
-}
 
 .container{
     display:inline-block;
@@ -37,5 +29,5 @@
     font-size: 20px;
     padding: 30px;
     
-
+    
 }

@@ -4,7 +4,8 @@ let vieDuBoss = 100; // Vie initiale du boss
 let vieDuJoueur = 100 //vie initiale du joueur
 let minDegats = 20; // Dégâts minimum que le joueur peut infliger
 let maxDegats = 60; // Dégâts maximum que le joueur peut infliger
-let tempsAttaque = 1000; // Temps entre chaque attaque en millisecondesq    
+let tempsAttaque = 1000; // Temps entre chaque attaque en millisecondes
+
 
 // Fonction pour générer des dégâts aléatoires entre minDegats et maxDegats
 function attaquerBoss() {
@@ -15,10 +16,9 @@ function commencerCombat() {
 
     let valide = false;
     let compteur = 0;
-
-    while (valide =true) {
+ while (valide =true) {
         let testNumero = prompt("Entrez la vie du bosse");
-        compteur = parseInt(valide);
+        compteur = parseInt(testNumero);
 
         // si c'est un chiffre
         if ((!isNaN(testNumero)) && ((testNumero) > 0)) {
@@ -37,16 +37,8 @@ function commencerCombat() {
         }
 
     }
-
-}
-    
-
-while (isNaN(vieDuJoueur) || (vieDuJoueur) < 1) {
-    vieDuJoueur = prompt("entrez la vie de votre personnage "); // Vie du joueur (optionnel, pas utilisé dans ce combat)
-    vieDuJoueur = parseInt(vieDuJoueur)
-
-}
-
+//ce code sert à quoi car on a jéja entrée la vie du bosse???
+/* 
 let vieDuboss;
 while (isNaN(vieDuBoss)) {
     vieDuBoss = prompt("Veillez insérer la vie du bosse.");
@@ -54,8 +46,7 @@ while (isNaN(vieDuBoss)) {
 
     vieDuBoss = parseInt(vieDuBoss)
 }
-
-
+*/
 let log = document.getElementById("gameLog"); // Zone pour afficher les logs
 log.textContent = "Le combat contre le boss commence !\n";
 
@@ -90,7 +81,7 @@ let interval = setInterval(function () {
         case "3":
             log.textContent += "Le joueur utilise un joker !\n";
             // Ici, vous pouvez ajouter la logique pour utiliser un joker
-            let chances = Math.rendom();
+            let  = Math.rendom()
             if(chance <0.05){
                 degats*2
             }
@@ -103,7 +94,7 @@ let interval = setInterval(function () {
             break;
 
         default:
-            log.textContent += "Action non reconnue. Le joueur attaque avec son arme par défaut.\n";
+            log.textContent += "Action non reconnue. \n";
     }
 
     if (vieDuBoss < 0) {
@@ -119,22 +110,11 @@ let interval = setInterval(function () {
         log.textContent += "Le boss est vaincu ! Victoire du joueur !\n";
     }
 }, tempsAttaque); // Attaquer toutes les `tempsAttaque` millisecondes
-
-
-
-function myFunction() {
-    // Get the value of the input field with id="numb"
-    let x = document.getElementById("numb").value;
-    // If x is Not a Number or less than one or greater than 10
-    let text;
-    if (isNaN(x) || (x < 1)) {
-        text = "Ce n'est pas correct!!";
-    } else {
-        text = "Il est correct";
-    }
-    document.getElementById("demo").innerHTML = text;
+while (isNaN(vieDuJoueur) || (vieDuJoueur) < 1) {
+    vieDuJoueur = prompt("entrez la vie de votre personnage "); // Vie du joueur (optionnel, pas utilisé dans ce combat)
+    vieDuJoueur = parseInt(vieDuJoueur)
+}
 }
 
-
 // Ajouter un événement pour démarrer le combat au clic sur le bouton
-//document.getElementById("startGameBtn").addEventListener("click", commencerCombat);*/}
+//document.getElementById("startGameBtn").addEventListener("click", commencerCombat);*/
