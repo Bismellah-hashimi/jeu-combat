@@ -38,7 +38,7 @@ function commencerCombat() {
 
     }
 //ce code sert à quoi car on a jéja entrée la vie du bosse???
-/* 
+
 let vieDuboss;
 while (isNaN(vieDuBoss)) {
     vieDuBoss = prompt("Veillez insérer la vie du bosse.");
@@ -46,7 +46,7 @@ while (isNaN(vieDuBoss)) {
 
     vieDuBoss = parseInt(vieDuBoss)
 }
-*/
+
 let log = document.getElementById("gameLog"); // Zone pour afficher les logs
 log.textContent = "Le combat contre le boss commence !\n";
 
