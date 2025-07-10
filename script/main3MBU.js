@@ -1,3 +1,5 @@
+console.log("Je ne suis pas fou !! je suis ' --");
+
 
 // Variables de base du jeu
 let vieDuBoss = 100; // Vie initiale du boss
@@ -6,24 +8,42 @@ let minDegats = 20; // Dégâts minimum que le joueur peut infliger
 let maxDegats = 60; // Dégâts maximum que le joueur peut infliger
 let tempsAttaque = 1000; // Temps entre chaque attaque en millisecondes
 
+// On le met en global pour éviter la répétition de code
+let log = document.getElementById("gameLog"); // Zone pour afficher les logs
 
 // Fonction pour générer des dégâts aléatoires entre minDegats et maxDegats
-function attaquerBoss() {
-    return Math.floor(Math.random() * (maxDegats - minDegats + 1)) + minDegats;
+function commencerLeJeu(){
+    console.log("Commencement du jeu !!");
+    
+    console.log("Demander les valeurs aux joueurs.");
+
+    demanderVieBoss();
+    console.log("La vie du boss .. c'est " + vieDuBoss);
+
+    demanderVieDuJoueur();
+    console.log("La vie du joueur .. c'est " + vieDuJoueur);
+
+    console.log("\n\n!! Que le combat commence !!");
+    combat();
 }
-// Fonction pour commencer le combat
-function commencerCombat() {
 
-    let valide = false;
+
+function demanderVieBoss() {
+    let valide = true;
     let compteur = 0;
- while (valide =true) {
-        let testNumero = prompt("Entrez la vie du bosse");
-        compteur = parseInt(testNumero);
+    log.textContent = "Le combat contre le boss commence !\n";
 
+
+    while (valide = true) {
+        let testNumero = prompt("Entrez la vie du bosse");
+        testNumero = parseInt(testNumero);
+    
         // si c'est un chiffre
         if ((!isNaN(testNumero)) && ((testNumero) > 0)) {
             console.log("Le numbre est valide");
             valide = true;
+            vieDuBoss = testNumero;
+            return;
         }
         else {
             console.log("Le chifre n'est pas valide.");
@@ -31,30 +51,49 @@ function commencerCombat() {
         compteur++;
         //si le test sera fals cinq fois ou plus....
         if (compteur >= 5) {
+            console.log("vous avez esseyé toutes vou chances")
+            //Il y aura un message d'erreur (vous avez essayé toutes vos chances. Le programme va se fermer)            console.log("vous aves essayer tout vos chances. Le preograme va se fermer");
+            //le programe va se fermer.
+            throw new TypeError('Vous avez esseyé toutes vos chances');
+        }
+    }
+}
+
+function demanderVieDuJoueur() {
+    let valide = true;
+    let compteur = 0;
+    log.textContent = "Le combat contre le boss commence !\n";
+
+
+    while (valide = true) {
+        let testNumero = prompt("Entrez la vie du joueur");
+        testNumero = parseInt(testNumero);
+    
+        // si c'est un chiffre
+        if ((!isNaN(testNumero)) && ((testNumero) > 0)) {
+            console.log("Le numbre est valide");
+            valide = true;
+            vieDuJoueur = testNumero;
+            return;
+        }
+        else {
+            console.log("Le chifre n'est pas valide.");
+        }
+        compteur++;
+        //si le test sera fals cinq fois ou plus....
+        if (compteur >= 5) {
+            throw new TypeError('Vous avez esseyé toutes vos chances');
             //Il y aura un message d'erreur (vous avez essayé toutes vos chances. Le programme va se fermer)            console.log("vous aves essayer tout vos chances. Le preograme va se fermer");
             //le programe va se fermer.
             return;
         }
-
     }
-//ce code sert à quoi car on a jéja entrée la vie du bosse???
-
-let vieDuboss;
-while (isNaN(vieDuBoss)) {
-    vieDuBoss = prompt("Veillez insérer la vie du bosse.");
-    // Réinitialisation de la vie du boss à chaque nouveau combat
-
-    vieDuBoss = parseInt(vieDuBoss)
 }
 
-let log = document.getElementById("gameLog"); // Zone pour afficher les logs
-log.textContent = "Le combat contre le boss commence !\n";
-
-// Boucle de combat : attaque jusqu'à ce que la vie du boss soit épuisée
-let interval = setInterval(function () {
+function combat(){
     // Calcul des dégâts infligés au boss
     var choix = prompt("arme, boire une potion de vie, ou utiliser un joker");
-    while(vieDuBoss=0){
+     while(vieDuBoss=0){
         log.textContent +="Le bosse est vaincu..."
     }
     switch (choix) {
@@ -84,7 +123,7 @@ let interval = setInterval(function () {
         case "3":
             log.textContent += "Le joueur utilise un joker !\n";
             // Ici, vous pouvez ajouter la logique pour utiliser un joker
-            let  = Math.rendom()
+            let  = Math.random()
             if(chance <0.05){
                 degats*2
             }
@@ -112,12 +151,12 @@ let interval = setInterval(function () {
         clearInterval(interval); // Arrêter la boucle d'attaque
         log.textContent += "Le boss est vaincu ! Victoire du joueur !\n";
     }
-}, tempsAttaque); // Attaquer toutes les `tempsAttaque` millisecondes
-while (isNaN(vieDuJoueur) || (vieDuJoueur) < 1) {
-    vieDuJoueur = prompt("entrez la vie de votre personnage "); // Vie du joueur (optionnel, pas utilisé dans ce combat)
-    vieDuJoueur = parseInt(vieDuJoueur)
-}
 }
 
-// Ajouter un événement pour démarrer le combat au clic sur le bouton
-//document.getElementById("startGameBtn").addEventListener("click", commencerCombat);*/
+function attaquerBoss() {
+    let test = valide;
+    return Math.floor(Math.random() * (maxDegats - minDegats + 1)) + minDegats;
+}
+
+
+ //à partire de la commence le combat{}

@@ -13,8 +13,8 @@ function commencerLeJeu(){
 
     // combat() !! ;
     
-let vieduboss;
-while (isNaN(vieDuBoss)) {
+let vieDuJoueur;
+while (isNaN(vieDuJoueur)) {
   
      
     console.log("Ici on demande la vie du joueur...")
@@ -23,36 +23,12 @@ let log = document.getElementById("gameLog"); // Zone pour afficher les logs
 log.textContent = "Le combat contre le boss commence !\n";
 
 }
-
 let vieDuJoueur;
- 
-  compteur= 0;
-        while (isNaN(vieDuJoueur)){
+  while (isNaN(vieDuJoueur)){
         vieDuJoueur = prompt("Veillez insérer la vie du joueur.");
-        vieDuJoueur= parseInt(vieDuJoueur);
-        // si c'est un chiffre
-        if ((isNaN(vieDuJoueur)) && ((vieDuJoueur) > 0)) {
-            console.log("Le numbre est valide");
-            valide = true;
-            vieDuJoueur = vieDuJoueur;
-            return;
-        }
-        else {
-            console.log("Le chifre n'est pas valide.");
-        }
-        compteur++;
-        //si le test sera fals cinq fois ou plus....
-        if (compteur >= 5) {
-            console.log("vous avez esseyé toutes vou chances")
-            //Il y aura un message d'erreur (vous avez essayé toutes vos chances. Le programme va se fermer)            console.log("vous aves essayer tout vos chances. Le preograme va se fermer");
-            //le programe va se fermer.
-            return;
-        }
-    
-
+        
     }
 }
-
 
 
 function demanderVieBoss() {
@@ -96,4 +72,4 @@ function attaquerBoss() {
 }
 
 
- //à partire de la commence le combat
+ //à partire de la commence le combat{}
