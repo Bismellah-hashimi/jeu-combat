@@ -29,12 +29,12 @@ function commencerLeJeu(){
 
 
 function demanderVieBoss() {
-    let valide = true;
+    let valide = false;
     let compteur = 0;
     log.textContent = "Le combat contre le boss commence !\n";
 
 
-    while (valide = true) {
+    while (valide == false) { // valide = true             valide == true         valide === true
         let testNumero = prompt("Entrez la vie du bosse");
         testNumero = parseInt(testNumero);
     
@@ -60,12 +60,12 @@ function demanderVieBoss() {
 }
 
 function demanderVieDuJoueur() {
-    let valide = true;
+    let valide = false;
     let compteur = 0;
     log.textContent = "Le combat contre le boss commence !\n";
 
 
-    while (valide = true) {
+    while (valide == false) {
         let testNumero = prompt("Entrez la vie du joueur");
         testNumero = parseInt(testNumero);
     
@@ -92,71 +92,75 @@ function demanderVieDuJoueur() {
 
 function combat(){
     // Calcul des dégâts infligés au boss
-    var choix = prompt("arme, boire une potion de vie, ou utiliser un joker");
-     while(vieDuBoss=0){
+    console.log("(combat)La vie actuelle du bosse est de : " + vieDuBoss);
+
+    
+ 
+     while(vieDuBoss >= 0){
+       var choix = prompt("arme, boire une potion de vie, ou utiliser un joker");
+            switch (choix) {
+                case "1":
+
+                    log.textContent += "Le joueur attaque avec son arme !\n";
+                    let degats = attaquerBoss();
+
+                    // Afficher l'attaque et la vie restante du boss
+                    log.textContent += `Le joueur attaque le boss et inflige ${degats} points de dégâts.\n`;
+
+                    // Réduire la vie du boss
+                    vieDuBoss -= degats;
+                     break;
+                    
+                case "2":
+                    log.textContent += "Le joueur boit une potion de vie !\n";
+                    let chance = Math.random();
+                    if(chance < 0.05){
+                        vieDuBoss += 30;
+                    }else{
+                    vieDuJoueur += 30;
+                    }
+                     break;
+                    // Ici, vous pouvez ajouter la logique pour restaurer la vie du joueur
+                    
+                case "3":
+                    log.textContent += "Le joueur utilise un joker !\n";
+                    // Ici, vous pouvez ajouter la logique pour utiliser un joker
+                    let  = Math.random()
+                    if(chance <0.05){
+                        degats*2
+                    }
+                    else if(chance<0.7){
+                        vieDuJoueur += 50;
+                    }
+                    else {
+
+                    }
+                    break;
+
+                default:
+                    log.textContent += "Action non reconnue. \n";
+            }
+
+            if (vieDuBoss < 0) {
+                vieDuBoss = 0; // S'assurer que la vie ne devient pas négative
+            }
+
+            // Afficher la vie restante du boss
+            log.textContent += `Vie restante du boss : ${vieDuBoss}\n`;
+
+            // Vérifier si le boss est vaincu
+            if (vieDuBoss <= 0) {
+                // clearInterval(interval); // Arrêter la boucle d'attaque
+                log.textContent += "Le boss est vaincu ! Victoire du joueur !\n";
+                return 
+            }
+        }
         log.textContent +="Le bosse est vaincu..."
     }
-    switch (choix) {
-        case "1":
-
-            log.textContent += "Le joueur attaque avec son arme !\n";
-            let degats = attaquerBoss();
-
-            // Afficher l'attaque et la vie restante du boss
-            log.textContent += `Le joueur attaque le boss et inflige ${degats} points de dégâts.\n`;
-
-            // Réduire la vie du boss
-            vieDuBoss -= degats;
-
-            break;
-        case "2":
-            log.textContent += "Le joueur boit une potion de vie !\n";
-            let chance = Math.random();
-            if(chance < 0.05){
-                vieDuBoss += 30;
-            }else{
-            vieDuJoueur += 30;
-            }
-
-            // Ici, vous pouvez ajouter la logique pour restaurer la vie du joueur
-            break;
-        case "3":
-            log.textContent += "Le joueur utilise un joker !\n";
-            // Ici, vous pouvez ajouter la logique pour utiliser un joker
-            let  = Math.random()
-            if(chance <0.05){
-                degats*2
-            }
-            else if(chance<0.7){
-                vieDuJoueur += 50;
-            }
-            else {
-
-            }
-            break;
-
-        default:
-            log.textContent += "Action non reconnue. \n";
-    }
-
-    if (vieDuBoss < 0) {
-        vieDuBoss = 0; // S'assurer que la vie ne devient pas négative
-    }
-
-    // Afficher la vie restante du boss
-    log.textContent += `Vie restante du boss : ${vieDuBoss}\n`;
-
-    // Vérifier si le boss est vaincu
-    if (vieDuBoss <= 0) {
-        clearInterval(interval); // Arrêter la boucle d'attaque
-        log.textContent += "Le boss est vaincu ! Victoire du joueur !\n";
-    }
-}
+  
 
 function attaquerBoss() {
-    let test = valide;
     return Math.floor(Math.random() * (maxDegats - minDegats + 1)) + minDegats;
 }
-
 
  //à partire de la commence le combat{}

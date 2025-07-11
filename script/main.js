@@ -56,7 +56,7 @@ let interval = setInterval(function () {
     var choix = prompt("arme, boire une potion de vie, ou utiliser un joker");
     while(vieDuBoss=0){
         log.textContent +="Le bosse est vaincu..."
-    }
+    
     switch (choix) {
         case "1":
 
@@ -112,12 +112,14 @@ let interval = setInterval(function () {
         clearInterval(interval); // Arrêter la boucle d'attaque
         log.textContent += "Le boss est vaincu ! Victoire du joueur !\n";
     }
+}
 }, tempsAttaque); // Attaquer toutes les `tempsAttaque` millisecondes
 while (isNaN(vieDuJoueur) || (vieDuJoueur) < 1) {
     vieDuJoueur = prompt("entrez la vie de votre personnage "); // Vie du joueur (optionnel, pas utilisé dans ce combat)
     vieDuJoueur = parseInt(vieDuJoueur)
 }
 }
+
 
 // Ajouter un événement pour démarrer le combat au clic sur le bouton
 //document.getElementById("startGameBtn").addEventListener("click", commencerCombat);*/
